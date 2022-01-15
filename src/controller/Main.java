@@ -1,11 +1,18 @@
 package controller;
 
+import model.Subject;
+import model.Teacher;
+import model.TeachingManagement;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         int choice;
+        Controller controller = new Controller();
         Scanner in = new Scanner(System.in);
+        TeachingManagement tm = new TeachingManagement();
+        TeachingManagement[] tmng = new TeachingManagement[100];
         do{
             System.out.println("==========MENU==========");
             System.out.println("1. Nhập danh sách môn học mới. In ra danh sách môn học đã có.");
@@ -18,7 +25,6 @@ public class Main {
 
             choice = in.nextInt();
             in.nextLine();
-            Controller controller = new Controller();
             switch (choice){
                 case 0:
                     System.out.println("Tạm biệt!!!");
@@ -36,7 +42,8 @@ public class Main {
                     controller.inLTeacher();
                     break;
                 case 3:
-
+                    tmng = tm.manageTeaching(tmng, controller.t, controller.s);
+                    tm.showTM(tmng);
                     break;
             }
         }while(choice != 0);

@@ -3,7 +3,7 @@ package model;
 import java.util.Scanner;
 
 public class Subject {
-    private int sitS = 100;
+    private static int sitS = 100;
     private int itS;
     private String subjectName;
     private int totalLesson;
@@ -14,8 +14,7 @@ public class Subject {
         this.itS = sitS++;
     }
 
-    public Subject(int sitS, int itS, String subjectName, int totalLesson, int theoryLesson, double price) {
-        this.sitS = sitS;
+    public Subject( int itS, String subjectName, int totalLesson, int theoryLesson, double price) {
         this.itS = itS;
         this.subjectName = subjectName;
         this.totalLesson = totalLesson;
@@ -28,7 +27,7 @@ public class Subject {
     }
 
     public void setSitS(int sitS) {
-        this.sitS = sitS++;
+        this.sitS = sitS;
     }
 
     public int getItS() {
